@@ -51,8 +51,9 @@ export default class Lotto {
   #convert() {
     const digits = String(this.#nSize).length;
     const pad = (n) => String(n).padStart(digits, "0");
+    const makeString = (row) => row.map(pad).join(" ");
 
-    return this.#matrix.map((row) => row.map(pad).join(" ")).join("\n");
+    return this.#matrix.map(makeString).join("\n");
   }
 
   str() {
