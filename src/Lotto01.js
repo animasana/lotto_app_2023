@@ -41,10 +41,12 @@ export default class Lotto {
   }
 
   *#sample() {
-    const seq = Array.from(this.#seq(this.#nSize));
-
+    const indices = [...this.#seq(this.#nSize)];
     for (let i = 0; i < this.#nCols; i++) {
-      yield seq.splice(Math.floor(seq.length * Math.random()), 1)[0];
+      const j = Math.floor(Math.random() * (this.#nSize - i)) + i;
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+      console.log(indices);
+      yield indices[i];
     }
   }
 
