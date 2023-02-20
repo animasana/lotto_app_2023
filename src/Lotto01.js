@@ -45,7 +45,6 @@ export default class Lotto {
     for (let i = 0; i < this.#nCols; i++) {
       const j = Math.floor(Math.random() * (this.#nSize - i)) + i;
       [indices[i], indices[j]] = [indices[j], indices[i]];
-      console.log(indices);
       yield indices[i];
     }
   }
